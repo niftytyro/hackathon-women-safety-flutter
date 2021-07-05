@@ -1,4 +1,4 @@
-package com.example.naari_shakti
+package com.udasitharani.streeraksha
 
 import io.flutter.embedding.android.FlutterActivity
 

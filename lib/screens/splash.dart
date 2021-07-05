@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:naari_shakti/constants.dart';
 import 'package:naari_shakti/screens/auth.dart';
+import 'package:naari_shakti/screens/home.dart';
 import 'package:naari_shakti/widgets/app_header.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,8 +19,16 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(
-      Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(context, AuthScreen.route),
+      Duration(milliseconds: 1500),
+      () async {
+        await Firebase.initializeApp();
+        Navigator.pushReplacementNamed(
+          context,
+          FirebaseAuth.instance.currentUser != null
+              ? HomeScreen.route
+              : AuthScreen.route,
+        );
+      },
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:naari_shakti/constants.dart';
+import 'package:naari_shakti/screens/home.dart';
+import 'package:naari_shakti/services/auth.dart';
 
 class SignInButton extends StatelessWidget {
   const SignInButton();
@@ -7,7 +9,14 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        try {
+          signInWithGoogle();
+          Navigator.of(context).pushReplacementNamed(HomeScreen.route);
+        } catch (err) {
+          print(err);
+        }
+      },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(Colors.pink[300]),
         textStyle: MaterialStateProperty.all(kSignInButtonTextStyle),

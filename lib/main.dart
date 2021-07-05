@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:naari_shakti/constants.dart';
 import 'package:naari_shakti/screens/auth.dart';
+import 'package:naari_shakti/screens/home.dart';
 import 'package:naari_shakti/screens/splash.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
 }
 
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: appName,
       theme: ThemeData.light(),
       routes: {
-        SplashScreen.route: (context) => SplashScreen(),
         AuthScreen.route: (context) => AuthScreen(),
+        HomeScreen.route: (context) => HomeScreen(),
+        SplashScreen.route: (context) => SplashScreen(),
       },
       initialRoute: SplashScreen.route,
     );
