@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:naari_shakti/constants.dart';
 import 'package:naari_shakti/widgets/emergency_button.dart';
 import 'package:naari_shakti/widgets/option_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = "/home";
@@ -29,7 +30,14 @@ class HomeScreen extends StatelessWidget {
               OptionButton(
                 title: "Self Defence",
                 imageName: "self_defence.png",
-                onPress: () {},
+                onPress: () {
+                  try {
+                    launch(
+                        "https://www.youtube.com/playlist?list=PLHfTPxnG4fWq1Wa1vAt8NXnsr9pGmGvQ3");
+                  } catch (err) {
+                    print(err);
+                  }
+                },
               ),
               SizedBox(height: 8),
               OptionButton(
