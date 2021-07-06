@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appName,
-      theme: ThemeData.light(),
+      theme: ThemeData.light().copyWith(
+        primaryColor: Colors.red[400],
+      ),
       routes: {
         AuthScreen.route: (context) => AuthScreen(),
         HomeScreen.route: (context) => HomeScreen(),

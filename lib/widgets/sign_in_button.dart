@@ -35,7 +35,7 @@ class SignInButton extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
             height: 60,
-            child: Image.asset("assets/icons/signin_google.png"),
+            child: Image.asset("assets/images/signin_google.png"),
           )
         ],
       ),

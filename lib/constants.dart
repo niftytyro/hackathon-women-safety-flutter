@@ -24,5 +24,11 @@ const TextStyle kSignInButtonTextStyle = const TextStyle(
   fontSize: 18,
 );
 
+const TextStyle kMenuTextStyle = const TextStyle(
+    fontFamily: "Raleway",
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: Colors.black87);
+
 // Padding
 const EdgeInsets kScreenPadding = const EdgeInsets.all(16);
