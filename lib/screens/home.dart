@@ -17,28 +17,25 @@ class HomeScreen extends StatelessWidget {
           padding: kScreenPadding,
           child: Column(
             children: [
-              Padding(
-                padding: kScreenPadding,
-                child: SizedBox(
-                  height: 0.6 * MediaQuery.of(context).size.height,
-                  child: Center(
-                    child: EmergencyButton(),
-                  ),
-                ),
-              ),
+              SizedBox(height: 80),
+              EmergencyButton(),
+              SizedBox(height: 80),
               OptionButton(
                 title: "Anonymous Complaint",
                 imageName: "anonymous_complaint.png",
+                onPress: () {},
               ),
               SizedBox(height: 8),
               OptionButton(
                 title: "Self Defence",
                 imageName: "self_defence.png",
+                onPress: () {},
               ),
               SizedBox(height: 8),
               OptionButton(
                 title: "Feedback",
                 imageName: "feedback.png",
+                onPress: () {},
               ),
             ],
           ),
