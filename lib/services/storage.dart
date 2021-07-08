@@ -12,31 +12,32 @@ class StorageService {
     return directory.path;
   }
 
-  Future<File> get _localFile async {
+  Future<File> get _settingsFile async {
     final path = await _localPath;
 
     final file = File('$path/data.json');
     if (!file.existsSync()) {
       file.createSync();
-      file.writeAsStringSync("[]");
+      file.writeAsStringSync(jsonEncode({'message': "", "contacts": []}));
     }
     return file;
   }
 
-  Future<List> addContact(Contact contact) async {
-    final contacts = await readContacts();
-    contacts.add({
+  Future<Map> addContact(Contact contact) async {
+    final settings = await readSettings();
+    settings['contacts'].add({
       'name': contact.fullName,
       'number': contact.phoneNumber.number,
+      'location': true
     });
-    final file = await _localFile;
-    file.writeAsStringSync(jsonEncode(contacts));
-    return contacts;
+    final file = await _settingsFile;
+    file.writeAsStringSync(jsonEncode(settings));
+    return settings;
   }
 
-  Future<List> readContacts() async {
+  Future<Map> readSettings() async {
     try {
-      final file = await _localFile;
+      final file = await _settingsFile;
 
       // Read the file
       final contactsRaw = await file.readAsString();
@@ -44,15 +45,33 @@ class StorageService {
     } catch (e) {
       // If encountering an error, return 0
       print(e);
-      return [];
+      return {};
     }
   }
 
-  Future<List> removeContact(int idx) async {
-    final contacts = await readContacts();
-    contacts.removeAt(idx);
-    final file = await _localFile;
-    file.writeAsStringSync(jsonEncode(contacts));
-    return contacts;
+  Future<Map> removeContact(int idx) async {
+    final settings = await readSettings();
+    settings['contacts'].removeAt(idx);
+    final file = await _settingsFile;
+    file.writeAsStringSync(jsonEncode(settings));
+    return settings;
+  }
+
+  Future<Map> writeMessage(String msg) async {
+    final settings = await readSettings();
+    settings['message'] = msg;
+    final file = await _settingsFile;
+    file.writeAsString(jsonEncode(settings));
+    print("SettINGS");
+    print(jsonEncode(settings));
+    return settings;
+  }
+
+  Future<Map> writeLocation(bool location) async {
+    final settings = await readSettings();
+    settings['location'] = location;
+    final file = await _settingsFile;
+    file.writeAsStringSync(jsonEncode(settings));
+    return settings;
   }
 }
