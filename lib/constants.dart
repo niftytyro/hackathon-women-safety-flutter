@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const appName = "Stri Raksha";
+const appName = "Stree Raksha";
 
 // Text Styles
 const TextStyle kAppHeaderTextStyle = const TextStyle(
@@ -12,15 +12,16 @@ const TextStyle kAppHeaderTextStyle = const TextStyle(
 );
 
 const TextStyle kSplashAppHeaderStyle = const TextStyle(
-  fontFamily: "Prompt",
+  fontFamily: "ZenTokyoZoo",
   fontWeight: FontWeight.w700,
-  fontSize: 36,
-  color: Colors.black,
+  fontSize: 54,
+  color: Colors.white,
   decoration: TextDecoration.none,
 );
 
 const TextStyle kSignInButtonTextStyle = const TextStyle(
   fontFamily: "Raleway",
+  fontWeight: FontWeight.w600,
   fontSize: 18,
 );
 

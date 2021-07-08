@@ -18,7 +18,10 @@ class StorageService {
     final file = File('$path/data.json');
     if (!file.existsSync()) {
       file.createSync();
-      file.writeAsStringSync(jsonEncode({'message': "", "contacts": []}));
+      file.writeAsStringSync(jsonEncode({
+        'message': "URGENT! I am in danger! Please help!!!",
+        "contacts": []
+      }));
     }
     return file;
   }

@@ -36,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     timeDilation = 2;
     return Scaffold(
+      backgroundColor: Colors.red[400],
       body: SafeArea(
         child: Center(
           child: Hero(

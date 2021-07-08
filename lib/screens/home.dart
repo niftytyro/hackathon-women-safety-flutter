@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     Permission.sms.request();
+    Permission.locationAlways.request();
   }
 
   @override

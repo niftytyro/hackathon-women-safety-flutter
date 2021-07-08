@@ -9,6 +9,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red[400],
       body: SafeArea(
         child: Padding(
           padding: kScreenPadding,

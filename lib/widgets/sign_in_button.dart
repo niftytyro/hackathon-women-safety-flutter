@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:naari_shakti/constants.dart';
 import 'package:naari_shakti/screens/home.dart';
@@ -9,18 +10,19 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
+      onPressed: () async {
         try {
-          signInWithGoogle();
-          Navigator.of(context).pushReplacementNamed(HomeScreen.route);
+          await signInWithGoogle();
+          if (FirebaseAuth.instance.currentUser != null)
+            Navigator.of(context).pushReplacementNamed(HomeScreen.route);
         } catch (err) {
           print(err);
         }
       },
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.pink[300]),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
         textStyle: MaterialStateProperty.all(kSignInButtonTextStyle),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
+        foregroundColor: MaterialStateProperty.all(Colors.black),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

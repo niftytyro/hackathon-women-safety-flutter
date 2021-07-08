@@ -86,6 +86,9 @@ flutter:
           weight: 800
         - asset: assets/fonts/Raleway-Black.ttf
           weight: 900
+    - family: ZenTokyoZoo
+      fonts:
+        - asset: assets/fonts/ZenTokyoZoo-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
