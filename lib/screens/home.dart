@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:naari_shakti/constants.dart';
 import 'package:naari_shakti/screens/emergency_settings.dart';
 import 'package:naari_shakti/widgets/emergency_button.dart';
 import 'package:naari_shakti/widgets/option_button.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final GlobalKey<ScaffoldState> _modelScaffoldKey = GlobalKey<ScaffoldState>();
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const route = "/home";
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Permission.sms.request();
+  }
 
   @override
   Widget build(BuildContext context) {

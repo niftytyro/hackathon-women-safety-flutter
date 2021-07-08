@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:contact_picker/contact_picker.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:naari_shakti/services/storage.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -104,6 +105,9 @@ class _EmergencySettingsState extends State<EmergencySettings> {
             ),
             TextField(
               controller: _messageController,
+              keyboardType: TextInputType.multiline,
+              maxLength: null,
+              maxLines: null,
             ),
             Row(
               children: [
@@ -113,20 +117,6 @@ class _EmergencySettingsState extends State<EmergencySettings> {
                       storageService.writeMessage(_messageController.text);
                     },
                     child: Text("Save")),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  value: location,
-                  onChanged: (bool? newLocation) {
-                    setState(() {
-                      location = !location;
-                      storageService.writeLocation(location);
-                    });
-                  },
-                ),
-                Text("Send location")
               ],
             ),
           ],

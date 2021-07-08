@@ -35,6 +35,15 @@ class StorageService {
     return settings;
   }
 
+  Future<List<String>> readNumbers() async {
+    final settings = await readSettings();
+    final List<String> contacts = settings['contacts']
+        .map((contact) => contact['number'])
+        .toList()
+        .cast<String>();
+    return contacts;
+  }
+
   Future<Map> readSettings() async {
     try {
       final file = await _settingsFile;
